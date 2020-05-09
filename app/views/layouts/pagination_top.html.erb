@@ -1,0 +1,11 @@
+<% if @users == nil %>
+<div class="pagination top">
+  <%= paginate @microposts %>
+</div>
+
+<% else %>
+<div class="pagination top">
+  <%= paginate @users %>
+</div>
+
+<% end %>

@@ -1,0 +1,23 @@
+<header>
+  <div class="container">
+    <nav class="navbarTop">
+
+      <span class="siteLogo">
+        <%= link_to image_tag('N3_default.jpeg', width: 80), root_url %>
+      </span>
+    </nav>
+
+  </div>
+  <nav>
+    <%= link_to 'ユーザー一覧', users_path %>
+    <% if user_signed_in? %>
+      <strong><%= link_to current_user.username, root_path %></strong>
+      <%= link_to 'プロフィール編集', edit_user_registration_path, method: :get %>
+      <%= link_to 'いいね一覧', root_path %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'サインアップ', new_user_registration_path, method: :get %>
+      <%= link_to 'ログイン', new_user_session_path, method: :get %>
+    <% end %>
+  </nav>
+</header>

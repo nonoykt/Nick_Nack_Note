@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'sign_out', to: 'users/sessions#destroy'
   end
 
-  resources :user, only: %i[index show]
+  resources :users, only: %i[index show]
 
   root 'pages#home'
   get '/about', to: 'pages#about'

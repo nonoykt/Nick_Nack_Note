@@ -1,1 +1,2 @@
-<h1>hello <%= current_username %></h1>
+<% provide(:title, "アバウト") %>
+<h1>hello <%= current_user.username %></h1>
