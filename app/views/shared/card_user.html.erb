@@ -6,11 +6,11 @@
   <% @users.each do |user| %>
     <div class="card_content">
       <div class="user_icon">
-        <%# <% unless user.image == '/image/default.jpeg' %>
-          <%# <%= link_to user_path(id: user.id), method: :get do %>
-            <%# <%= image_tag '/images/default.jpeg', class: 'user_image' %>
-          <%# <% end %>
-        <%# <% end %>
+        <% unless user.image == '/image/N3_default.jpeg' %>
+          <%= link_to user_path(id: user.id), method: :get do %>
+            <%= image_tag user.image.url, class: 'user_image' %>
+          <% end %>
+        <% end %>
         <span class="user_username">
           <%= link_to user_path(id: user.id), method: :get do %>
             <li><%= user.username %></li>

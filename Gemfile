@@ -4,19 +4,22 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'bootsnap', '~> 1.4.2', require: false
-
-gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
+gem 'bootstrap'
+gem 'carrierwave', '~> 1.2.2'
+gem 'carrierwave-base64', '~> 2.8.0'
+gem 'carrierwave-i18n', '~> 0.2.0'
+gem 'carrierwave-mongoid', '~>1.3.0'
+gem 'devise'
+gem 'font-awesome-sass'
+gem 'kaminari'
+gem 'mini_magick'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'omniauth-twitter'
 gem 'puma', '~> 3.11'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker', github: 'rails/webpacker'
-gem 'devise'
-gem 'omniauth-twitter'
-gem 'kaminari'
-gem 'bootstrap'
-gem 'font-awesome-sass'
-gem 'mini_magick'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -58,6 +61,10 @@ group :test do
 
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.1.3'
+end
+
+group :production do
+  gem 'fog-aws', '~> 2.0.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

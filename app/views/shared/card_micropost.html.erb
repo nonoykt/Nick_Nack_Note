@@ -6,11 +6,11 @@
   <% @microposts.each do |micropost| %>
     <div class="card_content">
       <div class="user_icon">
-        <%# <% unless user.image == '/image/default.jpeg' %>
-          <%# <%= link_to user_path(id: user.id), method: :get do %>
-            <%# <%= image_tag '/images/default.jpeg', class: 'user_image' %>
-          <%# <% end %>
-        <%# <% end %>
+        <% unless user.image == '/image/N3_default.jpeg' %>
+          <%= link_to user_path(id: user.id), method: :get do %>
+            <%= image_tag User.find(micropost.user_id).image.url, class: 'user_image' %>
+          <% end %>
+        <% end %>
         <span class="user_username">
           <%= link_to user_path(id: user.id), method: :get do %>
             <%= User.find(micropost.user_id).username %>
@@ -23,12 +23,12 @@
         <%= micropost.content %>
       <% end %>
     </p>
-    <%# <% unless micropost.image_url == '/image/default.jpeg' %>
-      <%# <div class="micropost-image">
+    <% unless micropost.image_url == '/image/N3_default.jpeg' %>
+      <div class="micropost-image">
         <%= link_to micropost_path(id: micropost.id), method: :get do %>
-          <%# <%= image_tag micropost.image.url, alt: '投稿写真' %>
-        <%# <% end %>
-      <%# </div>
+          <%= image_tag micropost.image.url, alt: '投稿写真' %>
+        <% end %>
+      </div>
     <% end %>
     <%# makes logo(likes, created_at_time, trash) with fontawesome
     <div class="action-content">
