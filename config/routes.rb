@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[index show]
+  resources :microposts, only: %i[index timeline show edit]
+  get 'timeline', to:'microposts#timeline'
 
   root 'pages#home'
   get '/about', to: 'pages#about'

@@ -25,10 +25,21 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-        username: ユーザーネーム
+        username: ユーザー名
+        image: 画像
+
+      micropost:
+        id: ID
+        name: 名称
+        content: 内容
+        image: 画像
+        created_at: 投稿時間
+        updated_at: 更新時間
+        
     models:
       user: ユーザ
       username: ユーザーネーム
+
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
