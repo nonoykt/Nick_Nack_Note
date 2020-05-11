@@ -4,6 +4,8 @@ class MicropostsController < ApplicationController
   end
 
   def timeline
+    @microposts = Micropost.where(id: microposts_id).page(params[:page]).per(20)
+    @micropost = currnet_user.microposts.builde
   end
 
   def edit
