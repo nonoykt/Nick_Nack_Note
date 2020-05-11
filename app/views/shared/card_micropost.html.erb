@@ -6,10 +6,8 @@
   <% @microposts.each do |micropost| %>
     <div class="card_content">
       <div class="user_icon">
-        <% unless user.image == '/image/N3_default.jpeg' %>
-          <%= link_to user_path(id: user.id), method: :get do %>
-            <%= image_tag User.find(micropost.user_id).image.url, class: 'user_image' %>
-          <% end %>
+        <%= link_to user_path(id: user.id), method: :get do %>
+          <%= image_tag User.find(micropost.user_id).image.url, class: 'user_image' %>
         <% end %>
         <span class="user_username">
           <%= link_to user_path(id: user.id), method: :get do %>

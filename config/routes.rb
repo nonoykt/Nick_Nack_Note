@@ -26,9 +26,10 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  get '/user/:id/follows_posts', to: 'microposts#timeline', as: :user_timeline
 
   resources :users, only: %i[index show]
-  resources :microposts, only: %i[index timeline show edit]
+  resources :microposts, only: %i[index show edit create]
   resources :relationships, only: %i[create destroy]
 
 end

@@ -1,4 +1,6 @@
 class MicropostsController < ApplicationController
+  before_action :logged_in_user, only: %i[timeline show create destroy]
+
   def index
     @microposts = Micropost.all.page(params[:page]).per(10)
   end
@@ -13,16 +15,16 @@ class MicropostsController < ApplicationController
 
     users << @user
 
-    micropost_id = []
+    microposts_id = []
     users.each do |user|
       user_microposts = Micropost.where(user_id: user.id)
       user_microposts.each do |micropost|
-        micropost_id << micropost.id
+        microposts_id << micropost.id
       end
     end
 
     @microposts = Micropost.where(id: microposts_id).page(params[:page]).per(20)
-    @micropost = currnet_user.microposts.build
+    @micropost = current_user.microposts.build
   end
 
   def edit
@@ -30,6 +32,7 @@ class MicropostsController < ApplicationController
   end
 
   def show
+    @user = User.find(Micropost.find(params[:id]).user_id)
     @micropost = Micropost.find(params[:id])
   end
 
@@ -55,6 +58,13 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     redirect_to request.referer || root_url, notice: '投稿を削除しました'
+  end
+
+  protected
+
+  def logged_in_user
+    return if user_signed_in?
+    redirect_to new_user_session_url, alert: 'ログインまたはアカウント登録してください'
   end
 
   private

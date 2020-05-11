@@ -1,10 +1,11 @@
 <% provide(:title, "タイムライン") %>
 <div class="container dynamic_pages">
+  <%= render template: "microposts/form" %>
   <div class="container_flex">
     <div class="container_posts">
-      <%# <%= render template: "layouts/pagination_top" %>
-      <%# <%= render template: "shared/card_micropost" %>
-      <%# <%= render template: "layouts/pagination_bottom" %>
+      <%= render template: "layouts/pagination_top" %>
+      <%= render template: "shared/card_micropost" %>
+      <%= render template: "layouts/pagination_bottom" %>
     </div>
   </div>
 </div>
