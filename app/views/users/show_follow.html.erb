@@ -1,0 +1,11 @@
+<% provide(:title, @title) %>
+<div class="container">
+  <%= render template: 'layouts/sidebar'%>
+  <div class="container_flex">
+    <div class="container_posts">
+      <%= render template: 'layouts/pagination_top' %>
+      <%= render template: 'shared/card_user' %>
+      <%= render template: 'layouts/pagination_bottom' %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  root 'pages#home'
+  get '/about', to: 'pages#about'
+  get '/help', to: 'pages#help'
+  get '/privacy', to: 'pages#privacy'
+  get '/terms_of_service', to: 'pages#terms_of_service'
+  get 'timeline', to:'microposts#timeline'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     confirmations: 'users/confirmations',
@@ -14,13 +21,14 @@ Rails.application.routes.draw do
     get 'sign_out', to: 'users/sessions#destroy'
   end
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :users, only: %i[index show]
   resources :microposts, only: %i[index timeline show edit]
-  get 'timeline', to:'microposts#timeline'
+  resources :relationships, only: %i[create destroy]
 
-  root 'pages#home'
-  get '/about', to: 'pages#about'
-  get '/help', to: 'pages#help'
-  get '/privacy', to: 'pages#privacy'
-  get '/terms_of_service', to: 'pages#terms_of_service'
 end
