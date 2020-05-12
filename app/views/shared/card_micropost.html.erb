@@ -28,15 +28,21 @@
         <% end %>
       </div>
     <% end %>
-    <%# makes logo(likes, created_at_time, trash) with fontawesome
-    <div class="action-content">
-      <span class="action-item"> #like
+    <div class="wrapper_actions">
+      <span class="action">
+        <%# <%= image_tag 'icon_clock.svg', alt: '時計のアイコン' %>
+        <span><%= time_ago_in_words(micropost.created_at) %>前</span>
       </span>
-      <span class="action-item"> #micropost_created_time
+      <span class="action" id="like_action-<%= micropost.id %>">
+        <%= render partial: 'likes/like', locals: { micropost: micropost } %>
       </span>
-      <span class="action-item"> #trash/method: :delete
+      <% if user_signed_in? && micropost.user_id == current_user.id %>
+      <span class="action">
+        <%= link_to micropost_path(id: micropost.id), method: :delete, data: { confirm: "投稿を削除しても本当によろしいですが？" } do %>
+        <%# <%= image_tag 'icon_trash.svg', alt: 'ゴミ箱のアイコン' %>
+        <% end %>
       </span>
+      <% end %>
     </div>
-    %>
   <% end %>
 <% end %>

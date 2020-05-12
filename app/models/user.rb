@@ -6,6 +6,7 @@ class User < ApplicationRecord
               foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :follewers, through: :passive_relationships, source: :follwer
+  has_many :likes, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

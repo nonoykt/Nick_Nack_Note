@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'likes/create'
+  get 'likes/destroy'
   root 'pages#home'
   get '/about', to: 'pages#about'
   get '/help', to: 'pages#help'
@@ -31,5 +33,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show]
   resources :microposts, only: %i[index show edit create]
   resources :relationships, only: %i[create destroy]
+  resources :likes, only: %i[create destroy]
 
 end
