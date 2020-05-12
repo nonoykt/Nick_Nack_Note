@@ -1,45 +1,43 @@
 <% provide(:title, "投稿詳細") %>
-<% if @microposts.length == 0 %>
+<% if @micropost.nil? %>
   <div class="card_content">
     <p>対象となる投稿が存在しておりません</p>
   </div>
 <% else %>
-  <% @microposts.each do |micropost| %>
-    <div class="card_content">
-      <div class="user_icon">
-        <%# <% unless user.image == '/image/default.jpeg' %>
-          <%# <%= link_to user_path(id: user.id), method: :get do %>
-            <%# <%= image_tag '/images/default.jpeg', class: 'user_image' %>
-          <%# <% end %>
-        <%# <% end %>
-        <span class="user_username">
-          <%= link_to user_path(id: user.id), method: :get do %>
-            <%= User.find(micropost.user_id).username %>
-          <% end %>
-        </span>
-      </div>
+  <% user = User.find(@micropost.user_id)%>
+  <div class="card_content">
+    <div class="user_icon">
+  <%# <% unless user.image == '/image/default.jpeg' %>
+    <%# <%= link_to user_path(id: user.id), method: :get do %>
+      <%# <%= image_tag '/images/default.jpeg', class: 'user_image' %>
+    <%# <% end %>
+  <%# <% end %>
+      <span class="user_username">
+        <%= link_to user_path(id: user.id), method: :get do %>
+          <%= User.find(@micropost.user_id).username %>
+        <% end %>
+      </span>
     </div>
-    <p class="micropost-content">
-      <%= link_to micropost_path(id: micropost.id), method: :get do %>
-        <%= micropost.content %>
-      <% end %>
-    </p>
-    <%# <% unless micropost.image_url == '/image/default.jpeg' %>
-      <%# <div class="micropost-image">
-        <%= link_to micropost_path(id: micropost.id), method: :get do %>
-          <%# <%= image_tag micropost.image.url, alt: '投稿写真' %>
-        <%# <% end %>
-      <%# </div>
+  </div>
+  <p class="micropost-content"><%= @micropost.content %></p>
+  <%# <% unless micropost.image_url == '/image/default.jpeg' %>
+  <%# <div class="micropost-image">
+    <%# <%= image_tag @micropost.image.url, alt: '投稿写真' %>
+  <%# </div>
     <% end %>
     <%# makes logo(likes, created_at_time, trash) with fontawesome
     <div class="action-content">
-      <span class="action-item"> #like
-      </span>
+      <span class="action" id="like_action-<%= @micropost.id %>">
+    <%# <%= render partial: 'likes/like', locals: { micropost: @micropost } %>
+  <%# </span>
       <span class="action-item"> #micropost_created_time
       </span>
-      <span class="action-item"> #trash/method: :delete
-      </span>
-    </div>
-    %>
-  <% end %>
+      <% if user_signed_in? && @user == current_user %>
+    <%# <span class="action">
+          <%= link_to micropost_path(id: @micropost.id), method: :delete, data: { confirm: "投稿を削除しても本当によろしいですが？" } do %>
+        <%# <%= image_tag 'icon_trash.svg', alt: 'ゴミ箱のアイコン' %>
+      <%# <% end %>
+        <%# </span>
+      <% end %>
+<%# </div> %>
 <% end %>

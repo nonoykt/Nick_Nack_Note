@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[show following followers]
+  before_action :sign_in_required, only: %i[timeline show following followers]
 
   def index
     @users = User.all.page(params[:page]).per(10)

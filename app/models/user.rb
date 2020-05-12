@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :follewers, through: :passive_relationships, source: :follwer
   has_many :likes, dependent: :destroy
+  has_many :my_likes, through: :likes, source: :micropost
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -29,5 +30,15 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  private
+  def like(micropost)
+    my_likes << micropost
+  end
+
+  def unlike(_micropost)
+    likes.find_by(micropost_id: micropost.id).destroy
+  end
+
+  def like?(micropost)
+    my_likes.include?(micropost)
+  end
 end

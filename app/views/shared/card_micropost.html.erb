@@ -1,16 +1,17 @@
-<% if @microposts.length == 0 %>
+<% if @microposts.nil? %>
   <div class="card_content">
     <p>対象となる投稿が存在しておりません</p>
   </div>
 <% else %>
   <% @microposts.each do |micropost| %>
+  <% user = User.find(micropost.user_id)%>
     <div class="card_content">
       <div class="user_icon">
-        <%= link_to user_path(id: user.id), method: :get do %>
+        <%= link_to users_path(id: user.id), method: :get do %>
           <%= image_tag User.find(micropost.user_id).image.url, class: 'user_image' %>
         <% end %>
         <span class="user_username">
-          <%= link_to user_path(id: user.id), method: :get do %>
+          <%= link_to users_path(id: user.id), method: :get do %>
             <%= User.find(micropost.user_id).username %>
           <% end %>
         </span>

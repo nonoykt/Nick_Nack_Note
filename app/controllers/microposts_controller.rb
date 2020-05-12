@@ -1,8 +1,8 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: %i[timeline show create destroy]
+  before_action :sign_in_required, only: %i[timeline show create destroy]
 
   def index
-    @microposts = Micropost.all.page(params[:page]).per(10)
+    @microposts = Micropost.all.page(params[:page]).per(20)
   end
 
   def timeline
@@ -12,7 +12,6 @@ class MicropostsController < ApplicationController
     users = relationships.map do |relationship|
       User.find(relationship.followed_id)
     end
-
     users << @user
 
     microposts_id = []
@@ -58,13 +57,6 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     redirect_to request.referer || root_url, notice: '投稿を削除しました'
-  end
-
-  protected
-
-  def logged_in_user
-    return if user_signed_in?
-    redirect_to new_user_session_url, alert: 'ログインまたはアカウント登録してください'
   end
 
   private

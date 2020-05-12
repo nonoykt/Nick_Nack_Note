@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'likes/create'
-  get 'likes/destroy'
   root 'pages#home'
   get '/about', to: 'pages#about'
   get '/help', to: 'pages#help'
@@ -28,11 +26,14 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
   get '/user/:id/follows_posts', to: 'microposts#timeline', as: :user_timeline
+
+  post 'likes/:micropost_id/create', to: 'likes#create', constraints: { micropost_id: /\d+/ }, as: :likes_create
+  post 'likes/:micropost_id/delete', to: 'likes#destroy', constraints: { micropost_id: /\d+/ }, as: :likes_delete
 
   resources :users, only: %i[index show]
   resources :microposts, only: %i[index show edit create]
   resources :relationships, only: %i[create destroy]
-  resources :likes, only: %i[create destroy]
 
 end

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :sign_in_required, only: [:about]
+
   def home
   end
 
