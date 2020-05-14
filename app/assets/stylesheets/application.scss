@@ -19,25 +19,87 @@
 
 $N3-light-white: #fff;
 
-
-.card_content {
+// <--navbar-->
+header {
   width: 80%;
-  background-color: $N3-light-white;
-  -webit-border-radius: 5px 5px 5px 5px;
-  -moz-border-radius: 5px 5px 5px 5px;
-  -ms-border-radius: 5px 5px 5px 5px;
-  -o-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-  box-shadow: 0 3px 6px #00000029;
-  .user_image {
-    margin-right: 10px;
-    font-size: 1rem;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  margin-right: auto;
+  margin-left: auto;
+  nav.navbarTop {
+    background-color: yellow;
   }
-  .user_username {
-    font-size: 2rem;
+  nav.navbarMain {
+    text-align: center;
   }
 }
 
+// <--all-->
+.container_Main {
+  width: 80%;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+// <--container staticpages-->
+.static_pages {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+// <--footer-->
+a.navItem {
+  margin-right: 10px;
+}
+
+// <--card-->
+.card_content {
+  background-color: $N3-light-white;
+  -webit-border-radius: 100px 100px 100px 100px;
+  -moz-border-radius: 100px 100px 100px 100px;
+  -ms-border-radius: 100px 100px 100px 100px;
+  -o-border-radius: 100px 100px 100px 100px;
+  border-radius: 100px 100px 100px 100px;
+  box-shadow: 0 3px 6px #00000029;
+  margin-top: 30px;
+  padding: 50px;
+
+  .user_icon {
+    .user_image {
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+  }
+  .user_username {
+    font-size: 1rem;
+    list-style: none;
+    li {
+      margin-top: 10px;
+    }
+  }
+  .micropost_image {
+    padding-top: 10px;
+    margin_top: 10px;
+    font-size: 1rem;
+  }
+  .micropost_content {
+    padding-top: 10px;
+    color: black;
+  }
+  .actionItems {
+  }
+  .action {
+    margin-right: 20px;
+  }
+}
+
+
+// <--micropost-form-->
+.micropost_form {
+  padding: 0px 30px 0 30px;
+}
 
 // <follow_stats>
 .stats {
@@ -61,4 +123,13 @@ $N3-light-white: #fff;
   strong {
     display: block;
   }
+}
+
+// <--registration-->
+.container_signs {
+  padding: 0px 20px 0px 20px;
+}
+// <--login-->
+.container_login {
+  padding: 0px 20px 0px 20px;
 }

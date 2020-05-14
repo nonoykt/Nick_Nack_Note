@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
-  before_action :sign_in_required, only: %i[timeline show create destroy]
+  before_action :sign_in_required, only: %i[timeline show edit create destroy]
+  before_action :correct_user, only: %i[destroy]
 
   def index
     @microposts = Micropost.all.page(params[:page]).per(20)
@@ -55,7 +56,7 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    @micropost.destroy
+    @micropost.delete
     redirect_to request.referer || root_url, notice: '投稿を削除しました'
   end
 
@@ -71,6 +72,10 @@ class MicropostsController < ApplicationController
 
   def correct_user
     @micropost = Micropost.find(params[:id])
+
+    return if @micropost.user_id == current_user.id
+
+    redirect_to root_url, alert: '投稿者以外は削除できません'
   end
 
 

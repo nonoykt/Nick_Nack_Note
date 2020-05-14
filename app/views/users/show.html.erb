@@ -1,10 +1,12 @@
 <% provide(:title, "#{@user.username}") %>
-<div class="container dynamic_pages">
+<div class="container_Main">
   <div class="container_flex">
     <div class="container_posts">
-      <%= render template: "layouts/pagenate_top" %>
-      <%= render template: "layouts/card_micropost" %>
-      <%= render template: "layouts/pagenate_bottom" %>
+      <%= render template: "layouts/pagination_top" %>
+      <%= render template: "shared/stats" %>
+      <%= render template: "shared/follow_form" %>
+      <%= render template: "shared/card_micropost" %>
+      <%= render template: "layouts/pagination_bottom" %>
     </div>
   </div>
 </div>

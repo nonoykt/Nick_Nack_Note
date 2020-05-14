@@ -1,6 +1,10 @@
-<% provide(:title, "アバウト") %>
-<h1>hello <%= current_user.username %></h1>
-<p>Nick Nack Noteをご利用頂き誠に有難うございます。</p>
-<p>当サイトは日々の暮らしの中で何気なくこだわりをもち</p>
-<p>愛情を注いでいる物を語り合うことで</p>
-<p>様々な発見や喜びを共有できる場となっております。</p>
+<% provide(:title, "NickNackNoteに関して") %>
+<div class="container static_pages">
+  <% if user_signed_in? %>
+    <h1>Hello! <%= current_user.username %></h1>
+  <% end %>
+  <p>Nick Nack Noteをご利用頂き誠に有難うございます。</p>
+  <p>当サイトは日々の暮らしの中で何気なくこだわりをもち</p>
+  <p>愛情を注いでいる物を語り合うことで</p>
+  <p>様々な発見や喜びを共有できる場となっております。</p>
+</div>

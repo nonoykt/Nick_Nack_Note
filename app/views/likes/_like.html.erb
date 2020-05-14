@@ -1,24 +1,24 @@
 <% if user_signed_in? %>
   <% if current_user.like?(micropost) %>
-    <%= link_to likes_delete_path(micropost_id: micropost.id),
-      { method: "post", remote: true } do %>
-      <%# <%= image_tag("likes_icon")%>
+    <%= link_to likes_delete_path(micropost_id: micropost.id), { method: "post", remote: true } do %>
+      <i class="fas fa-heart"></i>
     <% end %>
     <span class="likes">
-      <%= link_to likes_create_path(micropost_id: micropost.id),
-        { method: "post", remote: true } do %>
-        <%# <%= image_tag("likes_icon")%>
-      <% end %>
+      <%= Like.where(micropost_id: micropost.id).count %>スキ
     </span>
+  <% else %>
+    <%= link_to likes_create_path(micropost_id: micropost.id), { method: "post", remote: true } do %>
+      <i class="far fa-heart"></i>
+    <% end %>
     <span class="likes">
-      <%= like.where(micropost_id: micropost.id).count %>いいね
+      <%= Like.where(micropost_id: micropost.id).count %>スキ
     </span>
   <% end %>
 <% else %>
   <%= link_to new_user_session_path, method: :get do %>
-    <%# <%= iamge_tag("likes_icon")%>
+    <i class="far fa-heart"></i>
   <% end %>
   <span class="likes">
-    <%= Like.where(micropost_id: micropost.id).count %>いいね
+    <%= Like.where(micropost_id: micropost.id).count %>スキ
   </span>
 <% end %>

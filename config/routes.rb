@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
-  root 'pages#home'
+  root 'microposts#index'
+  get 'home', to: 'pages#home'
   get '/about', to: 'pages#about'
   get '/help', to: 'pages#help'
   get '/privacy', to: 'pages#privacy'
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   post 'likes/:micropost_id/delete', to: 'likes#destroy', constraints: { micropost_id: /\d+/ }, as: :likes_delete
 
   resources :users, only: %i[index show]
-  resources :microposts, only: %i[index show edit create]
+  resources :microposts, only: %i[index show edit create destroy]
   resources :relationships, only: %i[create destroy]
 
 end

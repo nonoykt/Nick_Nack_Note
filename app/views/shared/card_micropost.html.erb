@@ -8,7 +8,7 @@
     <div class="card_content">
       <div class="user_icon">
         <%= link_to users_path(id: user.id), method: :get do %>
-          <%= image_tag User.find(micropost.user_id).image.url, class: 'user_image' %>
+          <%= image_tag User.find(micropost.user_id).image.url, size: "80x80", class: 'user_image' %>
         <% end %>
         <span class="user_username">
           <%= link_to users_path(id: user.id), method: :get do %>
@@ -16,34 +16,32 @@
           <% end %>
         </span>
       </div>
-    </div>
-    <p class="micropost-content">
-      <%= link_to micropost_path(id: micropost.id), method: :get do %>
-        <%= micropost.content %>
-      <% end %>
-    </p>
-    <% unless micropost.image_url == '/image/N3_default.jpeg' %>
-      <div class="micropost-image">
+      <div class="micropost_image">
         <%= link_to micropost_path(id: micropost.id), method: :get do %>
           <%= image_tag micropost.image.url, alt: '投稿写真' %>
         <% end %>
       </div>
-    <% end %>
-    <div class="wrapper_actions">
-      <span class="action">
-        <%# <%= image_tag 'icon_clock.svg', alt: '時計のアイコン' %>
-        <span><%= time_ago_in_words(micropost.created_at) %>前</span>
-      </span>
-      <span class="action" id="like_action-<%= micropost.id %>">
-        <%= render partial: 'likes/like', locals: { micropost: micropost } %>
-      </span>
-      <% if user_signed_in? && micropost.user_id == current_user.id %>
-      <span class="action">
-        <%= link_to micropost_path(id: micropost.id), method: :delete, data: { confirm: "投稿を削除しても本当によろしいですが？" } do %>
-        <%# <%= image_tag 'icon_trash.svg', alt: 'ゴミ箱のアイコン' %>
+      <p class="micropost_content">
+        <%= link_to micropost_path(id: micropost.id), method: :get do %>
+          <%= micropost.content %>
         <% end %>
-      </span>
-      <% end %>
+      </p>
+      <div class="actionItems">
+        <span class="action">
+          <i class="far fa-clock"></i>
+          <span><%= time_ago_in_words(micropost.created_at) %>前</span>
+        </span>
+        <span class="action" id="like_action-<%= micropost.id %>">
+          <%= render partial: 'likes/like', locals: { micropost: micropost } %>
+        </span>
+        <% if user_signed_in? && micropost.user_id == current_user.id %>
+          <span class="action">
+            <%= link_to micropost_path(id: micropost.id), method: :delete, data: { confirm: "投稿を削除しても本当によろしいですが？" } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </span>
+        <% end %>
+      </div>
     </div>
   <% end %>
 <% end %>

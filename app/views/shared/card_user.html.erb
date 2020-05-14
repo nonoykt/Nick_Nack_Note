@@ -1,22 +1,22 @@
-<% if @users.length == 0 %>
+<% if @users.nil? %>
   <div class="card_content">
     <p>対象となるユーザーが存在しておりません</p>
   </div>
 <% else %>
   <% @users.each do |user| %>
     <div class="card_content">
-      <div class="user_icon">
+      <span class="user_icon">
         <% unless user.image == '/image/N3_default.jpeg' %>
           <%= link_to user_path(id: user.id), method: :get do %>
-            <%= image_tag user.image.url, class: 'user_image' %>
+            <%= image_tag user.image.url, size: "80x80", class: 'user_image' %>
           <% end %>
         <% end %>
-        <span class="user_username">
-          <%= link_to user_path(id: user.id), method: :get do %>
-            <li><%= user.username %></li>
-          <% end %>
-        </span>
-      </div>
+      </span>
+      <span class="user_username">
+        <%= link_to user_path(id: user.id), method: :get do %>
+          <li><%= user.username %></li>
+        <% end %>
+      </span>
     </div>
   <% end %>
 <% end %>

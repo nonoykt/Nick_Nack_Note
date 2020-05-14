@@ -1,26 +1,48 @@
 <header>
   <div class="container">
     <nav class="navbarTop">
+      <span class="profile_image">
 
+      </span>
       <span class="siteLogo">
         <%= link_to image_tag('N3_default.jpeg', width: 80), microposts_path, method: :get %>
       </span>
     </nav>
 
   </div>
-  <nav>
+  <nav class="navbarMain">
     <% if user_signed_in? %>
-      <%= link_to 'タイムライン', user_timeline_path(id: current_user.id), method: :get %>
-      <%= link_to 'ユーザー一覧', users_path %>
-      <%= link_to '投稿一覧', microposts_path %>
-      <%= link_to 'プロフィール編集', edit_user_registration_path, method: :get %>
-      <%= link_to 'いいね一覧', root_path %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <%= link_to microposts_path, method: :get do %>
+        <i class="fas fa-home">ホーム</i>
+      <% end %>
+      <%= link_to user_timeline_path(id: current_user.id), method: :get do %>
+        <i class="fas fa-hands-helping">タイムライン</i>
+      <% end %>
+      <%= link_to users_path, method: :get do %>
+        <i class="fas fa-users">ユーザーズ</i>
+      <% end %>
+      <%= link_to root_path, method: :get do %>
+        <i class="fas fa-heart">スキ</i>
+      <% end %>
+      <%= link_to edit_user_registration_path, method: :get do %>
+        <i class="fas fa-user-cog">プロフィール</i>
+      <% end %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fas fa-unlock-alt">ログアウト</i>
+      <% end %>
     <% else %>
-      <%= link_to '投稿一覧', microposts_path, method: :get %>
-      <%= link_to 'ユーザー一覧', users_path %>
-      <%= link_to 'サインアップ', new_user_registration_path, method: :get %>
-      <%= link_to 'ログイン', new_user_session_path, method: :get %>
+      <%= link_to microposts_path, method: :get do %>
+        <i class="fas fa-home">ホーム</i>
+      <% end %>
+      <%= link_to users_path, method: :get do %>
+        <i class="fas fa-users">ユーザーズ</i>
+      <% end %>
+      <%= link_to new_user_registration_path, method: :get do %>
+        <i class="fas fa-id-badge">サインアップ</i>
+      <% end %>
+      <%= link_to new_user_session_path, method: :get do %>
+        <i class="fas fa-lock">ログイン</i>
+      <% end %>
     <% end %>
   </nav>
 </header>
