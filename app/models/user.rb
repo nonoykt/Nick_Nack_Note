@@ -7,13 +7,20 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :likes, dependent: :destroy
+  has_many :like_microposts, through: :likes, source: :micropost
   has_many :my_likes, through: :likes, source: :micropost
+
+  before_save { self.email = email.downcase }
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable,
          :trackable
          # :omniauthable, omniauth_providers:[:twitter]
+
+  validates :username, presence: true, length: { maximum: 32 }
+  validates :email, length: { maximum: 255 }
 
   mount_uploader :image, ImageUploader
   mount_base64_uploader :image, ImageUploader

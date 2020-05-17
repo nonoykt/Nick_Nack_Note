@@ -10,6 +10,7 @@ gem 'carrierwave-base64', '~> 2.8.0'
 gem 'carrierwave-i18n', '~> 0.2.0'
 gem 'devise'
 gem 'font-awesome-sass'
+gem 'jquery-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
@@ -57,9 +58,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
-
-  gem 'selenium-webdriver'
+  gem 'capybara', '>= 2.15.4'
   gem 'webdrivers', '~> 4.1.3'
 end
 

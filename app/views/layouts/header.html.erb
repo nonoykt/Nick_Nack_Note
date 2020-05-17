@@ -21,10 +21,10 @@
       <%= link_to users_path, method: :get do %>
         <i class="fas fa-users">ユーザーズ</i>
       <% end %>
-      <%= link_to root_path, method: :get do %>
+      <%= link_to likes_users_path(id: current_user.id), method: :get do %>
         <i class="fas fa-heart">スキ</i>
       <% end %>
-      <%= link_to edit_user_registration_path, method: :get do %>
+      <%= link_to user_path(id: current_user.id), method: :get do %>
         <i class="fas fa-user-cog">プロフィール</i>
       <% end %>
       <%= link_to destroy_user_session_path, method: :delete do %>

@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :sign_in_required, only: %i[timeline show following followers]
 
   def index
-    @users = User.all.page(params[:page]).per(10)
+    @user = User.find(current_user.id)
+    @users = User.all.page(params[:page]).per(20)
+    @micropost = current_user.microposts.build
   end
 
   def show

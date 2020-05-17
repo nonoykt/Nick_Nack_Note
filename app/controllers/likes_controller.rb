@@ -9,7 +9,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find_by(user_id: current_user.id, micropost_id: params[:micropost_id])
-    @micropost = Micropost.find(id: @like.micropost_id)
+    @micropost = Micropost.find_by(id: @like.micropost_id)
     @like.destroy
   end
 

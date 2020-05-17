@@ -6,9 +6,9 @@
   <% @users.each do |user| %>
     <div class="card_content">
       <span class="user_icon">
-        <% unless user.image == '/image/N3_default.jpeg' %>
+        <% unless user.image == '/images/N3_default.jpeg' %>
           <%= link_to user_path(id: user.id), method: :get do %>
-            <%= image_tag user.image.url, size: "80x80", class: 'user_image' %>
+          <%= image_tag user.image.url, size: "80x80", class: 'user_image' %>
           <% end %>
         <% end %>
       </span>

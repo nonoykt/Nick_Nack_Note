@@ -1,10 +1,18 @@
 <% provide(:title, "#{@user.username}") %>
 <div class="container_Main">
-  <div class="container_flex">
-    <div class="container_posts">
-      <%= render template: "layouts/pagination_top" %>
+  <div class="container_flex row">
+    <div class="">
+      <%= render template: "shared/user_profile" %>
       <%= render template: "shared/stats" %>
       <%= render template: "shared/follow_form" %>
+    </div>
+    <% if current_user == @user %>
+      <div class="">
+        <%= render template: "microposts/form" %>
+      </div>
+    <% end %>
+    <div class="container_posts">
+      <%= render template: "layouts/pagination_top" %>
       <%= render template: "shared/card_micropost" %>
       <%= render template: "layouts/pagination_bottom" %>
     </div>

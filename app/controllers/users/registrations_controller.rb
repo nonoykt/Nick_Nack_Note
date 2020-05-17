@@ -64,7 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
-    resource.uid.nil? ? super : resource.update_without_password(params)
+    resource.update_without_password(params)
   end
 
   def check_guest

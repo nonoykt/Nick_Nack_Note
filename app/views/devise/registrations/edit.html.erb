@@ -22,13 +22,6 @@
 
           <% if @user.uid == nil %>
             <div class="field">
-              <%= f.label :current_password, "現在のパスワード（必須）：", :class => "form-label" %>
-              <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-input" %>
-            </div>
-          <% end %>
-
-          <% if @user.uid == nil %>
-            <div class="field">
               <%= f.label :password, "新規のパスワード（任意）：", :class => "form-label" %>
               <%= f.password_field :password, autocomplete: "new-password", :class => "form-input" %>
             </div>

@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
   <% if current_user.like?(micropost) %>
-    <%= link_to likes_delete_path(micropost_id: micropost.id), { method: "post", remote: true } do %>
+  <%= link_to likes_delete_path(micropost_id: micropost.id), {method: "post", remote: true} do %>
       <i class="fas fa-heart"></i>
     <% end %>
     <span class="likes">
       <%= Like.where(micropost_id: micropost.id).count %>スキ
     </span>
   <% else %>
-    <%= link_to likes_create_path(micropost_id: micropost.id), { method: "post", remote: true } do %>
+    <%= link_to likes_create_path(micropost_id: micropost.id), {method: "post", remote: true} do %>
       <i class="far fa-heart"></i>
     <% end %>
     <span class="likes">
