@@ -19,29 +19,48 @@
 
 $N3-light-white: #fff;
 
+html.body {
+
+}
 // <--navbar-->
 header {
-  width: 80%;
   top: 0;
   left: 0;
   z-index: 100;
-  margin-right: auto;
-  margin-left: auto;
-  nav.navbarTop {
-    background-color: yellow;
-  }
-  nav.navbarMain {
-    text-align: center;
-  }
+  padding-top: 10px;
+  background-color: yellow;
+  -webit-border-radius: 100px 100px 100px 100px;
+  -moz-border-radius: 100px 100px 100px 100px;
+  -ms-border-radius: 100px 100px 100px 100px;
+  -o-border-radius: 100px 100px 100px 100px;
+  border-radius: 0px 100px 0px 0px;
 }
 
-// <--all-->
-.container_Main {
+nav.navbarTop {
   width: 80%;
-  margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 20px;
+}
+nav.navbarMain {
+  text-align: center;
+}
+
+
+.container_Main {
+  background-color: pink;
+  -webit-border-radius: 100px 100px 100px 100px;
+  -moz-border-radius: 100px 100px 100px 100px;
+  -ms-border-radius: 100px 100px 100px 100px;
+  -o-border-radius: 100px 100px 100px 100px;
+  border-radius: 100px 0px 100px 0px;
+}
+// <--all-->
+.container_flex {
+  width: 60%;
+  padding-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: pink;
 }
 
 // <--container staticpages-->
@@ -61,15 +80,23 @@ a.navItem {
   -moz-border-radius: 100px 100px 100px 100px;
   -ms-border-radius: 100px 100px 100px 100px;
   -o-border-radius: 100px 100px 100px 100px;
-  border-radius: 100px 100px 100px 100px;
+  border-radius: 100px 0px 100px 0px;
   box-shadow: 0 3px 6px #00000029;
-  margin-top: 30px;
+  margin-bottom: 30px;
   padding: 50px;
 
   .user_icon {
     .user_image {
       margin-right: 10px;
       font-size: 1rem;
+      border: 1px solid;
+      border-color: gray;
+      box-shadow: 0 3px 6px #00000029;
+      -webit-border-radius: 40px 40px 40px 40px;
+      -moz-border-radius: 40px 40px 40px 40px;
+      -ms-border-radius: 40px 40px 40px 40px;
+      -o-border-radius: 40px 40px 40px 40px;
+      border-radius: 40px 40px 40px 40px;
     }
   }
   .user_username {
@@ -80,8 +107,7 @@ a.navItem {
     }
   }
   .micropost_image {
-    padding-top: 10px;
-    margin_top: 10px;
+    padding-top: 15px;
     font-size: 1rem;
   }
   .micropost_content {
@@ -132,4 +158,15 @@ a.navItem {
 // <--login-->
 .container_login {
   padding: 0px 20px 0px 20px;
+}
+
+footer {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: yellow;
+  -webit-border-radius: 100px 100px 100px 100px;
+  -moz-border-radius: 100px 100px 100px 100px;
+  -ms-border-radius: 100px 100px 100px 100px;
+  -o-border-radius: 100px 100px 100px 100px;
+  border-radius: 0px 0px 0px 100px;
 }

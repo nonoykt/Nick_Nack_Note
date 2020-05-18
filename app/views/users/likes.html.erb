@@ -1,33 +1,54 @@
 <% provide(:title, "スキ") %>
-<div class="container-show">
-  <% current_user.like_microposts.each do |liked| %>
-    <div class="card-content">
-      <div class="micropost_image">
-        <%= link_to micropost_path(id: liked.id), method: :get do %>
-          <%= image_tag liked.image.url %>
+<div class="container_Main">
+  <div class="container_flex">
+    <div class="container_posts">
+      <% current_user.like_microposts.each do |liked| %>
+      <% user = User.find(liked.user_id) %>
+        <% if liked.nil? %>
+          <div class="card_content">
+            <p>対象となる投稿が存在しておりません</p>
+          </div>
+        <% else %>
+          <div class="card-content">
+            <div class="user_icon">
+              <%= link_to user_path(id: user.id), method: :get do %>
+                <%= image_tag User.find(liked.user_id).image.url, size: "80x80", class: 'user_image' %>
+              <% end %>
+              <span class="user_username">
+                <%= link_to user_path(id: user.id), method: :get do %>
+                  <%= User.find(liked.user_id).username %>
+                <% end %>
+              </span>
+            </div>
+            <div class="micropost_image">
+              <%= link_to micropost_path(id: liked.id), method: :get do %>
+                <%= image_tag liked.image.url %>
+              <% end %>
+            </div>
+            <p class="micropost_content">
+              <%= link_to micropost_path(id: liked.id), method: :get do %>
+                <%= liked.content %>
+              <% end %>
+            </p>
+            <div class="actionItems">
+              <span class="action">
+                <i class="far fa-clock"></i>
+                <span><%= time_ago_in_words(liked.created_at) %>前</span>
+              </span>
+              <span class="action" id="like_action-<%= liked.id %>">
+                <%= render partial: 'likes/like', locals: { micropost: liked } %>
+              </span>
+              <% if user_signed_in? && liked.user_id == current_user.id %>
+                <span class="action">
+                  <%= link_to micropost_path(id: liked.id), method: :delete, data: { confirm: "投稿を削除しても本当によろしいですが？" } do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                </span>
+              <% end %>
+            </div>
+          </div>
         <% end %>
-      </div>
-      <p class="micropost_content">
-        <%= link_to micropost_path(id: liked.id), method: :get do %>
-          <%= liked.content %>
-        <% end %>
-      </p>
-      <div class="actionItems">
-        <span class="action">
-          <i class="far fa-clock"></i>
-          <span><%= time_ago_in_words(liked.created_at) %>前</span>
-        </span>
-        <span class="action" id="like_action-<%= liked.id %>">
-          <%= render partial: 'likes/like', locals: { micropost: liked } %>
-        </span>
-        <% if user_signed_in? && liked.user_id == current_user.id %>
-          <span class="action">
-            <%= link_to micropost_path(id: liked.id), method: :delete, data: { confirm: "投稿を削除しても本当によろしいですが？" } do %>
-              <i class="fas fa-trash-alt"></i>
-            <% end %>
-          </span>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
