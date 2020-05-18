@@ -28,39 +28,59 @@ header {
   left: 0;
   z-index: 100;
   padding-top: 10px;
+  padding-bottom: 10px;
   background-color: yellow;
   -webit-border-radius: 100px 100px 100px 100px;
   -moz-border-radius: 100px 100px 100px 100px;
   -ms-border-radius: 100px 100px 100px 100px;
   -o-border-radius: 100px 100px 100px 100px;
-  border-radius: 0px 100px 0px 0px;
+  border-radius: 0px 0px 100px 0px;
 }
 
 nav.navbarTop {
   width: 80%;
   margin-right: auto;
   margin-left: auto;
+  .navbarProfile {
+  }
+  .siteLogo {
+  }
 }
 nav.navbarMain {
   text-align: center;
 }
 
+.user_image {
+  border: 1px solid;
+  border-color: gray;
+  box-shadow: 0 3px 6px purple;
+  -webit-border-radius: 40px 40px 40px 40px;
+  -moz-border-radius: 40px 40px 40px 40px;
+  -ms-border-radius: 40px 40px 40px 40px;
+  -o-border-radius: 40px 40px 40px 40px;
+  border-radius: 40px 40px 40px 40px;
+}
 
 .container_Main {
   background-color: pink;
-  -webit-border-radius: 100px 100px 100px 100px;
-  -moz-border-radius: 100px 100px 100px 100px;
-  -ms-border-radius: 100px 100px 100px 100px;
-  -o-border-radius: 100px 100px 100px 100px;
+  -webit-border-radius: 100px 0px 100px 0px;
+  -moz-border-radius: 100px 0px 100px 0px;
+  -ms-border-radius: 100px 0px 100px 0px;
+  -o-border-radius: 100px 0px 100px 0px;
   border-radius: 100px 0px 100px 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 // <--all-->
 .container_flex {
-  width: 60%;
+  width: 80%;
   padding-top: 20px;
   margin-right: auto;
   margin-left: auto;
   background-color: pink;
+}
+
+.container_posts {
 }
 
 // <--container staticpages-->
@@ -76,10 +96,10 @@ a.navItem {
 // <--card-->
 .card_content {
   background-color: $N3-light-white;
-  -webit-border-radius: 100px 100px 100px 100px;
-  -moz-border-radius: 100px 100px 100px 100px;
-  -ms-border-radius: 100px 100px 100px 100px;
-  -o-border-radius: 100px 100px 100px 100px;
+  -webit-border-radius: 100px 0px 100px 0px;
+  -moz-border-radius: 100px 0px 100px 0px;
+  -ms-border-radius: 100px 0px 100px 0px;
+  -o-border-radius: 100px 0px 100px 0px;
   border-radius: 100px 0px 100px 0px;
   box-shadow: 0 3px 6px #00000029;
   margin-bottom: 30px;
@@ -91,7 +111,7 @@ a.navItem {
       font-size: 1rem;
       border: 1px solid;
       border-color: gray;
-      box-shadow: 0 3px 6px #00000029;
+      box-shadow: 0 3px 6px purple;
       -webit-border-radius: 40px 40px 40px 40px;
       -moz-border-radius: 40px 40px 40px 40px;
       -ms-border-radius: 40px 40px 40px 40px;
@@ -121,6 +141,39 @@ a.navItem {
   }
 }
 
+// <--user_profile-->
+.container_profile {
+  background-color: white;
+  padding: 20px 20px 20px 20px;
+  margin: 0px 40px 20px 40px;
+  .profile_top {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profile_bottom {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .user_image {
+    border: 1px solid;
+    border-color: gray;
+    box-shadow: 0 3px 6px purple;
+    -webit-border-radius: 100px 100px 100px 100px;
+    -moz-border-radius: 100px 100px 100px 100px;
+    -ms-border-radius: 100px 100px 100px 100px;
+    -o-border-radius: 100px 100px 100px 100px;
+    border-radius: 100px 100px 100px 100px;
+  }
+
+  .user_username {
+    padding: 10px 0px 10px 0px;
+    list-style: none;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
 
 // <--micropost-form-->
 .micropost_form {
@@ -130,8 +183,7 @@ a.navItem {
 // <follow_stats>
 .stats {
   overflow: auto;
-  margin-top: 0;
-  padding: 0;
+  padding: 50px 0px 0px 20px;
   a {
     float: left;
     padding: 0 10px;
@@ -153,20 +205,31 @@ a.navItem {
 
 // <--registration-->
 .container_signs {
-  padding: 0px 20px 0px 20px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px 20px 20px;
 }
 // <--login-->
 .container_login {
-  padding: 0px 20px 0px 20px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px 20px 20px;
 }
 
 footer {
-  padding-top: 20px;
-  padding-bottom: 10px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
   background-color: yellow;
-  -webit-border-radius: 100px 100px 100px 100px;
-  -moz-border-radius: 100px 100px 100px 100px;
-  -ms-border-radius: 100px 100px 100px 100px;
-  -o-border-radius: 100px 100px 100px 100px;
-  border-radius: 0px 0px 0px 100px;
+  -webit-border-radius: 100px 0px 0px 0px;
+  -moz-border-radius: 100px 0px 0px 0px;
+  -ms-border-radius: 100px 0px 0px 0px;
+  -o-border-radius: 100px 0px 0px 0px;
+  border-radius: 100px 0px 0px 0px;
+}
+
+.static_pages {
+  width: 60%;
 }

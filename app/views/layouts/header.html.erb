@@ -2,9 +2,9 @@
   <div class="container">
     <nav class="navbarTop">
       <% if user_signed_in? %>
-        <span class="profile_image">
+        <span class="navbarProfile">
           <%= link_to user_path(id: current_user.id), method: :get do %>
-          <%= image_tag current_user.image.url, size: "50x50", class: 'user_image'%>
+          <%= image_tag current_user.image.url, size: "70x70", class: 'user_image'%>
           <% end %>
         </span>
       <% end %>

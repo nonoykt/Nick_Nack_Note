@@ -1,5 +1,11 @@
 <% @user ||= current_user %>
-<div class="stats">
+<span class="stats">
+  <a href="#">
+    <strong id="microposts" class-"stat">
+      <%= @user.microposts.count %>
+    </strong>
+    ポスト
+  </a>
   <a href="<%= following_user_path(@user) %>">
     <strong id="following" class="stat">
       <%= @user.following.count %>
@@ -12,4 +18,4 @@
     </strong>
     フォロワー
   </a>
-</div>
+</span>
