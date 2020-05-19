@@ -3,7 +3,8 @@ class MicropostsController < ApplicationController
   before_action :correct_user, only: %i[destroy]
 
   def index
-    @microposts = Micropost.all.page(params[:page]).per(20)
+    @q = Micropost.ransack(params[:q])
+    @microposts = @q.result(distinct: true).page(params[:page]).per(20)
   end
 
   def timeline
@@ -23,7 +24,8 @@ class MicropostsController < ApplicationController
       end
     end
 
-    @microposts = Micropost.where(id: microposts_id).page(params[:page]).per(20)
+    @q = current_user.microposts.ransack(params[:q])
+    @microposts = @q.result(distinct: true).where(id: microposts_id).page(params[:page]).per(20)
     @micropost = current_user.microposts.build
   end
 
