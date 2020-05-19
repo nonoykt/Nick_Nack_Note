@@ -1,4 +1,4 @@
-<% provide(:title, "投稿詳細") %>
+<% provide(:title, "ポスト") %>
 <div class="container_Main">
   <% if @micropost.nil? %>
     <div class="card_content">
@@ -24,7 +24,14 @@
       <div class="micropost_image">
         <%= image_tag @micropost.image.url, alt: '投稿写真' %>
       </div>
-      <p class="micropost_content"><%= @micropost.content %></p>
+      <p class="micropost_content">
+        <%= @micropost.content %>
+      </p>
+      <span class="micropost_category">
+        <%= @micropost.categories.each do |category| %>
+          <%= category.name %>
+        <% end %>
+      </span>
       <div class="actionItems">
         <span class="action">
           <i class="far fa-clock"></i>

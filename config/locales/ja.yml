@@ -33,6 +33,7 @@ ja:
         name: 名称
         content: 内容
         image: 画像
+        category: カテゴリー
         created_at: 投稿時間
         updated_at: 更新時間
 
@@ -288,9 +289,9 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      create: 登録
+      submit: 保存
+      update: 更新
   number:
     currency:
       format:

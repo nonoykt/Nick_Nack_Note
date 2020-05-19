@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       get :likes
     end
   end
-  resources :microposts, only: %i[index show edit create destroy]
+  resources :microposts, only: %i[index show new edit create destroy]
   resources :relationships, only: %i[create destroy]
 
 end

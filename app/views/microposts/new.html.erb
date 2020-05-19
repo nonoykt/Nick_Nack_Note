@@ -1,0 +1,45 @@
+<% provide(:title, "ニューポスト") %>
+<div class="container_Main">
+  <div class="container_flex">
+    <div class="micropost_form">
+      <%= form_for(@micropost) do |f| %>
+        <% if @micropost.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@micropost.errors.count, "error") %> prohibited this micropost from being saved:</h2>
+            <ul>
+              <% @micropost.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <%= f.label :content %><br>
+          <%= f.text_area :content, autofocus: true, maxlength: "140", class: "form-text-area" %>
+        </div>
+        <div class="field">
+          <% if @micropost.image? %>
+            <div class="micropost_image">
+              <%= image_tag @micropost.image.url %>
+            </div>
+          <% end %><br>
+          <%= f.label :image %><br>
+          <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+          <%= f.hidden_field :image_cache %>
+        </div>
+        <div class="field">
+          <%= f.label :category %><br>
+          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+            <%= category.label do %>
+              <%= category.check_box %>
+              <%= category.text %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="action">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

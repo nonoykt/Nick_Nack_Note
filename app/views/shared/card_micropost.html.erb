@@ -26,6 +26,11 @@
           <%= micropost.content %>
         <% end %>
       </p>
+      <span class="micropost_category">
+        <%= micropost.categories.each do |category| %>
+          <%= category.name %>
+        <% end %>
+      </span>
       <div class="actionItems">
         <span class="action">
           <i class="far fa-clock"></i>

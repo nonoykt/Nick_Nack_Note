@@ -27,6 +27,10 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build
   end
 
+  def new
+    @micropost = Micropost.new
+  end
+
   def edit
     @micropost = Micropost.find(params[:id])
   end
@@ -48,7 +52,7 @@ class MicropostsController < ApplicationController
       else
         '投稿できませんでした'
       end
-      redirect_to edit_micropost_path(id: @micropost.id)
+      redirect_to new_micropost_path(id: @micropost.id)
     end
   end
 
@@ -63,7 +67,7 @@ class MicropostsController < ApplicationController
   private
 
   def micropost_params
-    params.require(:micropost).permit(:content, :image, :image_cache)
+    params.require(:micropost).permit(:content, :image, :image_cache, category_ids: [])
   end
 
   def set_uesr

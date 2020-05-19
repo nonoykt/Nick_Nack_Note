@@ -7,6 +7,8 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validates :image, presence: true
+  has_many :micropost_categories
+  has_many :categories, through: :micropost_categories
 
   mount_uploader :image, ImageUploader
   mount_base64_uploader :image, ImageUploader
