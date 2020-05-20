@@ -1,7 +1,7 @@
 <% if @microposts.nil? %>
   <%= search_form_for @q, class: 'mb-5' do |f| %>
     <div class="form-group row">
-      <%= f.label :name_cont, 'ユーザー', class: 'col-sm-2 col-form-label' %>
+      <%= f.label :username_cont, 'ユーザー', class: 'col-sm-2 col-form-label search_cont' %>
       <div class="col-sm-6">
         <%= f.search_field :username_cont, class: 'form-control' %>
       </div>
@@ -13,7 +13,7 @@
 <% else %>
   <%= search_form_for @q, class: 'mb-5' do |f| %>
     <div class="form-group row">
-      <%= f.label :name_cont, 'ポスト', class: 'col-sm-2 col-form-label' %>
+      <%= f.label :content_cont, 'ポスト', class: 'col-sm-2 col-form-label search_cont' %>
       <div class="col-sm-6">
         <%= f.search_field :content_cont, class: 'form-control' %>
       </div>
