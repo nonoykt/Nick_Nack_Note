@@ -63,6 +63,10 @@ group :test do
   gem 'webdrivers', '~> 4.1.3'
 end
 
+group :production, :staging do
+  gem 'unicorn', '~> 5.5.4'
+end
+
 group :production do
   gem 'fog-aws', '~> 2.0.0'
 end

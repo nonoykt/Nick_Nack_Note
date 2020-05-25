@@ -17,5 +17,5 @@ test:
 production:
   <<: *default
   database: Nick_Nack_Note_production
-  username: nick_nack_no
-  password: <%= ENV['NICK_NACK_NOTE_DATABASE_PASSWORD'] %>
+  username: root
+  password:
