@@ -64,11 +64,11 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'unicorn', '~> 5.5.4'
+  gem 'unicorn'
 end
 
 group :production do
-  gem 'fog-aws', '~> 2.0.0'
+  gem 'fog-aws'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
