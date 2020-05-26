@@ -19,3 +19,5 @@ production:
   database: Nick_Nack_Note_production
   username: root
   password:
+  host: 127.0.0.1
+  socket: /var/lib/mysql/mysql.sock
