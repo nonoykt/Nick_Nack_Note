@@ -5,7 +5,7 @@ ruby '2.6.3'
 
 gem 'bootsnap', '~> 1.4.2', require: false
 gem 'bootstrap'
-gem 'carrierwave', '~> 1.2.2'
+gem 'carrierwave', '~> 1.3.2'
 gem 'carrierwave-base64', '~> 2.8.0'
 gem 'carrierwave-i18n', '~> 0.2.0'
 gem 'devise'
